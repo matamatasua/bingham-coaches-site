@@ -1,3 +1,6 @@
 /vcf/*
   Content-Type: text/vcard; charset=utf-8
   Cache-Control: public, max-age=300
+
+/vcf/all-coaches.vcf
+  Content-Disposition: attachment; filename="bingham-coaches.vcf"
