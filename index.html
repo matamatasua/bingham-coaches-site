@@ -40,7 +40,6 @@
     overflow-x: hidden;
   }
 
-  /* Grain texture overlay */
   body::before {
     content: '';
     position: fixed;
@@ -51,7 +50,6 @@
     z-index: 1;
   }
 
-  /* Ghost chainring watermark */
   body::after {
     content: '';
     position: fixed;
@@ -139,6 +137,10 @@
     gap: 10px;
   }
 
+  .contact-grid.compact {
+    gap: 6px;
+  }
+
   .contact-card {
     display: flex;
     align-items: center;
@@ -152,6 +154,11 @@
     transition: border-color 0.15s ease, background 0.15s ease, transform 0.1s ease;
     -webkit-tap-highlight-color: transparent;
     position: relative;
+  }
+
+  .contact-card.compact {
+    padding: 12px 16px;
+    gap: 12px;
   }
 
   .contact-card:hover,
@@ -179,6 +186,12 @@
     margin-bottom: 4px;
   }
 
+  .contact-card.compact .contact-name {
+    font-size: 17px;
+    margin-bottom: 2px;
+    letter-spacing: 0.02em;
+  }
+
   .contact-role {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 10px;
@@ -194,6 +207,13 @@
     font-size: 12px;
     color: var(--text-muted);
     letter-spacing: 0.02em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .contact-card.compact .contact-phone {
+    font-size: 11px;
   }
 
   .contact-action {
@@ -207,6 +227,11 @@
     border-radius: 50%;
     color: var(--text-muted);
     transition: all 0.15s ease;
+  }
+
+  .contact-card.compact .contact-action {
+    width: 28px;
+    height: 28px;
   }
 
   .contact-card:hover .contact-action {
@@ -261,19 +286,11 @@
     color: var(--accent);
   }
 
-  /* Staggered entrance */
   .contact-card {
     opacity: 0;
     transform: translateY(8px);
     animation: fadeUp 0.4s ease forwards;
   }
-
-  .contact-card:nth-child(1) { animation-delay: 0.05s; }
-  .contact-card:nth-child(2) { animation-delay: 0.1s; }
-  .contact-card:nth-child(3) { animation-delay: 0.15s; }
-  .contact-card:nth-child(4) { animation-delay: 0.2s; }
-  .contact-card:nth-child(5) { animation-delay: 0.25s; }
-  .contact-card:nth-child(6) { animation-delay: 0.3s; }
 
   @keyframes fadeUp {
     to { opacity: 1; transform: translateY(0); }
@@ -291,6 +308,7 @@
     body { padding: 24px 16px 40px; }
     h1 { font-size: 40px; }
     .contact-card { padding: 16px; }
+    .contact-card.compact { padding: 10px 14px; }
   }
 </style>
 </head>
@@ -300,80 +318,251 @@
       <img src="logo.png" alt="Bingham MTB" class="logo">
       <div class="eyebrow">Bingham Miners MTB</div>
       <h1>Team Contacts</h1>
-      <p class="intro">Tap any name below to save that contact to your phone.</p>
+      <p class="intro">Tap any name to save that contact to your phone.</p>
     </header>
 
-    <div class="divider">Coaches</div>
+    <div class="divider">Head Coaches</div>
 
     <div class="contact-grid">
-      <a class="contact-card" href="vcf/rodney-tupai.vcf">
+      <a class="contact-card" href="vcf/rodney-tupai.vcf" style="animation-delay:0.00s">
         <div class="contact-info">
           <div class="contact-role">Head Coach</div>
           <div class="contact-name">Rodney Tupai</div>
-          <div class="contact-phone">801-870-7423</div>
+          <div class="contact-phone">801-201-5506</div>
         </div>
-        <div class="contact-action" aria-hidden="true">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-        </div>
+        <div class="contact-action" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
       </a>
-
-      <a class="contact-card" href="vcf/matt-michaelis.vcf">
+      <a class="contact-card" href="vcf/matt-michaelis.vcf" style="animation-delay:0.04s">
         <div class="contact-info">
-          <div class="contact-role">Head Coach</div>
+          <div class="contact-role">Devo Head Coach</div>
           <div class="contact-name">Matt Michaelis</div>
           <div class="contact-phone">801-641-0795</div>
         </div>
-        <div class="contact-action" aria-hidden="true">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-        </div>
+        <div class="contact-action" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
       </a>
     </div>
 
-    <div class="divider">Team Leadership</div>
+    <div class="divider">Team Directors</div>
 
     <div class="contact-grid">
-      <a class="contact-card" href="vcf/danielle-tupai.vcf">
+      <a class="contact-card" href="vcf/danielle-tupai.vcf" style="animation-delay:0.00s">
         <div class="contact-info">
           <div class="contact-role">Team Director</div>
           <div class="contact-name">Danielle Tupai</div>
           <div class="contact-phone">801-918-3924</div>
         </div>
-        <div class="contact-action" aria-hidden="true">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-        </div>
+        <div class="contact-action" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
       </a>
-
-      <a class="contact-card" href="vcf/melissa-darby.vcf">
+      <a class="contact-card" href="vcf/melissa-darby.vcf" style="animation-delay:0.04s">
         <div class="contact-info">
           <div class="contact-role">Assistant Team Director</div>
           <div class="contact-name">Melissa Darby</div>
           <div class="contact-phone">801-699-4937</div>
         </div>
-        <div class="contact-action" aria-hidden="true">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-        </div>
+        <div class="contact-action" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
       </a>
-
-      <a class="contact-card" href="vcf/brooke-haas.vcf">
+      <a class="contact-card" href="vcf/brooke-haas.vcf" style="animation-delay:0.08s">
         <div class="contact-info">
-          <div class="contact-role">Assistant Team Director</div>
+          <div class="contact-role">Assistant Director</div>
           <div class="contact-name">Brooke Haas</div>
           <div class="contact-phone">801-440-0782</div>
         </div>
-        <div class="contact-action" aria-hidden="true">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-        </div>
+        <div class="contact-action" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
       </a>
-
-      <a class="contact-card" href="vcf/ashley-thomas.vcf">
+      <a class="contact-card" href="vcf/ashley-thomas.vcf" style="animation-delay:0.12s">
         <div class="contact-info">
           <div class="contact-role">Treasurer</div>
           <div class="contact-name">Ashley Thomas</div>
           <div class="contact-phone">801-673-5533</div>
         </div>
-        <div class="contact-action" aria-hidden="true">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        <div class="contact-action" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+      </a>
+    </div>
+
+    <div class="divider">Assistant Coaches</div>
+
+    <div class="contact-grid compact">
+      <a class="contact-card compact" href="vcf/andy-peay.vcf" style="animation-delay:0.00s">
+        <div class="contact-info">
+          <div class="contact-name">Andy Peay</div>
+          <div class="contact-phone">801-647-8027</div>
         </div>
+        <div class="contact-action" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+      </a>
+      <a class="contact-card compact" href="vcf/brad-millett.vcf" style="animation-delay:0.02s">
+        <div class="contact-info">
+          <div class="contact-name">Brad Millett</div>
+          <div class="contact-phone">801-599-8285</div>
+        </div>
+        <div class="contact-action" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+      </a>
+      <a class="contact-card compact" href="vcf/brady-beyer.vcf" style="animation-delay:0.04s">
+        <div class="contact-info">
+          <div class="contact-name">Brady Beyer</div>
+          <div class="contact-phone">801-414-8691</div>
+        </div>
+        <div class="contact-action" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+      </a>
+      <a class="contact-card compact" href="vcf/brianne-britton.vcf" style="animation-delay:0.06s">
+        <div class="contact-info">
+          <div class="contact-name">Brianne Britton</div>
+          <div class="contact-phone">801-884-7525</div>
+        </div>
+        <div class="contact-action" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+      </a>
+      <a class="contact-card compact" href="vcf/byran-holt.vcf" style="animation-delay:0.08s">
+        <div class="contact-info">
+          <div class="contact-name">Byran Holt</div>
+          <div class="contact-phone">801-718-1293</div>
+        </div>
+        <div class="contact-action" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+      </a>
+      <a class="contact-card compact" href="vcf/cassandra-rizley.vcf" style="animation-delay:0.10s">
+        <div class="contact-info">
+          <div class="contact-name">Cassandra Rizley</div>
+          <div class="contact-phone">801-833-5998</div>
+        </div>
+        <div class="contact-action" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+      </a>
+      <a class="contact-card compact" href="vcf/darren-haas.vcf" style="animation-delay:0.12s">
+        <div class="contact-info">
+          <div class="contact-name">Darren Haas</div>
+          <div class="contact-phone">801-493-9277</div>
+        </div>
+        <div class="contact-action" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+      </a>
+      <a class="contact-card compact" href="vcf/david-monson.vcf" style="animation-delay:0.14s">
+        <div class="contact-info">
+          <div class="contact-name">David Monson</div>
+          <div class="contact-phone">801-450-0600</div>
+        </div>
+        <div class="contact-action" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+      </a>
+      <a class="contact-card compact" href="vcf/derek-taylor.vcf" style="animation-delay:0.16s">
+        <div class="contact-info">
+          <div class="contact-name">Derek Taylor</div>
+          <div class="contact-phone">801-979-3464</div>
+        </div>
+        <div class="contact-action" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+      </a>
+      <a class="contact-card compact" href="vcf/ellen-hodgson.vcf" style="animation-delay:0.18s">
+        <div class="contact-info">
+          <div class="contact-name">Ellen Hodgson</div>
+          <div class="contact-phone">801-664-2335</div>
+        </div>
+        <div class="contact-action" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+      </a>
+      <a class="contact-card compact" href="vcf/james-garner.vcf" style="animation-delay:0.20s">
+        <div class="contact-info">
+          <div class="contact-name">James Garner</div>
+          <div class="contact-phone">801-381-5026</div>
+        </div>
+        <div class="contact-action" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+      </a>
+      <a class="contact-card compact" href="vcf/jeff-brown.vcf" style="animation-delay:0.22s">
+        <div class="contact-info">
+          <div class="contact-name">Jeff Brown</div>
+          <div class="contact-phone">801-326-7361</div>
+        </div>
+        <div class="contact-action" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+      </a>
+      <a class="contact-card compact" href="vcf/justin-fossey.vcf" style="animation-delay:0.24s">
+        <div class="contact-info">
+          <div class="contact-name">Justin Fossey</div>
+          <div class="contact-phone">801-898-3378</div>
+        </div>
+        <div class="contact-action" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+      </a>
+      <a class="contact-card compact" href="vcf/kevin-darby.vcf" style="animation-delay:0.26s">
+        <div class="contact-info">
+          <div class="contact-name">Kevin Darby</div>
+          <div class="contact-phone">801-231-6983</div>
+        </div>
+        <div class="contact-action" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+      </a>
+      <a class="contact-card compact" href="vcf/mason-gibbons.vcf" style="animation-delay:0.28s">
+        <div class="contact-info">
+          <div class="contact-name">Mason Gibbons</div>
+          <div class="contact-phone">801-739-6361</div>
+        </div>
+        <div class="contact-action" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+      </a>
+      <a class="contact-card compact" href="vcf/nate-hodgson.vcf" style="animation-delay:0.30s">
+        <div class="contact-info">
+          <div class="contact-name">Nate Hodgson</div>
+          <div class="contact-phone">nhodgson@xmission.com</div>
+        </div>
+        <div class="contact-action" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+      </a>
+      <a class="contact-card compact" href="vcf/nate-thomas.vcf" style="animation-delay:0.32s">
+        <div class="contact-info">
+          <div class="contact-name">Nate Thomas</div>
+          <div class="contact-phone">801-232-0497</div>
+        </div>
+        <div class="contact-action" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+      </a>
+      <a class="contact-card compact" href="vcf/nick-peck.vcf" style="animation-delay:0.34s">
+        <div class="contact-info">
+          <div class="contact-name">Nick Peck</div>
+          <div class="contact-phone">801-839-9670</div>
+        </div>
+        <div class="contact-action" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+      </a>
+      <a class="contact-card compact" href="vcf/paul-huntsman.vcf" style="animation-delay:0.36s">
+        <div class="contact-info">
+          <div class="contact-name">Paul Huntsman</div>
+          <div class="contact-phone">801-455-1036</div>
+        </div>
+        <div class="contact-action" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+      </a>
+      <a class="contact-card compact" href="vcf/rich-cox.vcf" style="animation-delay:0.38s">
+        <div class="contact-info">
+          <div class="contact-name">Rich Cox</div>
+          <div class="contact-phone">435-851-9554</div>
+        </div>
+        <div class="contact-action" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+      </a>
+      <a class="contact-card compact" href="vcf/robby-white.vcf" style="animation-delay:0.40s">
+        <div class="contact-info">
+          <div class="contact-name">Robby White</div>
+          <div class="contact-phone">801-889-6210</div>
+        </div>
+        <div class="contact-action" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+      </a>
+      <a class="contact-card compact" href="vcf/ross-ogden.vcf" style="animation-delay:0.40s">
+        <div class="contact-info">
+          <div class="contact-name">Ross Ogden</div>
+          <div class="contact-phone">801-750-7181</div>
+        </div>
+        <div class="contact-action" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+      </a>
+      <a class="contact-card compact" href="vcf/spencer-millerberg.vcf" style="animation-delay:0.40s">
+        <div class="contact-info">
+          <div class="contact-name">Spencer Millerberg</div>
+          <div class="contact-phone">smillerberg@gmail.com</div>
+        </div>
+        <div class="contact-action" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+      </a>
+      <a class="contact-card compact" href="vcf/todd-darby.vcf" style="animation-delay:0.40s">
+        <div class="contact-info">
+          <div class="contact-name">Todd Darby</div>
+          <div class="contact-phone">801-509-2451</div>
+        </div>
+        <div class="contact-action" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+      </a>
+      <a class="contact-card compact" href="vcf/troy-noorda.vcf" style="animation-delay:0.40s">
+        <div class="contact-info">
+          <div class="contact-name">Troy Noorda</div>
+          <div class="contact-phone">801-330-4395</div>
+        </div>
+        <div class="contact-action" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+      </a>
+      <a class="contact-card compact" href="vcf/wade-haas.vcf" style="animation-delay:0.40s">
+        <div class="contact-info">
+          <div class="contact-name">Wade Haas</div>
+          <div class="contact-phone">385-499-7937</div>
+        </div>
+        <div class="contact-action" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
       </a>
     </div>
 
