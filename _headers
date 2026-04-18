@@ -1,0 +1,7 @@
+/vcf/*
+  Content-Type: text/vcard; charset=utf-8
+  Cache-Control: public, max-age=300
+
+/*.vcf
+  Content-Type: text/vcard; charset=utf-8
+  Cache-Control: public, max-age=300

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0D0D0D">
+<title>Bingham MTB Team Contacts</title>
+<meta name="description" content="Save Bingham Mountain Bike team coach and director contacts to your phone.">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0D0D0D;
+    --bg-raised: #181818;
+    --bg-card: #141414;
+    --border: #2A2A2A;
+    --border-hover: #3F3F3F;
+    --text: #F5F3EE;
+    --text-muted: #8A867D;
+    --text-dim: #5A574F;
+    --accent: #FF9662;
+    --accent-dim: #B86A3F;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    min-height: 100vh;
+    padding: 32px 20px 48px;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Grain texture overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.12 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Ghost chainring watermark */
+  body::after {
+    content: '';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 140vw;
+    max-width: 900px;
+    height: 140vw;
+    max-height: 900px;
+    transform: translate(-50%, -50%);
+    background: url('logo.png') no-repeat center / contain;
+    opacity: 0.025;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 520px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+
+  .logo {
+    width: 88px;
+    height: 88px;
+    margin: 0 auto 20px;
+    display: block;
+  }
+
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.24em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+    font-weight: 400;
+    margin-bottom: 14px;
+  }
+
+  .intro {
+    font-size: 14px;
+    color: var(--text-muted);
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 32px 0 20px;
+    color: var(--text-dim);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .divider::before,
+  .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .contact-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .contact-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.15s ease, background 0.15s ease, transform 0.1s ease;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+  }
+
+  .contact-card:hover,
+  .contact-card:focus-visible {
+    border-color: var(--border-hover);
+    background: var(--bg-raised);
+    outline: none;
+  }
+
+  .contact-card:active {
+    transform: scale(0.985);
+    border-color: var(--accent);
+  }
+
+  .contact-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .contact-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    line-height: 1.1;
+    letter-spacing: 0.03em;
+    margin-bottom: 4px;
+  }
+
+  .contact-role {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .contact-phone {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+  }
+
+  .contact-action {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    color: var(--text-muted);
+    transition: all 0.15s ease;
+  }
+
+  .contact-card:hover .contact-action {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .save-all {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px;
+    background: transparent;
+    border: 1px dashed var(--border);
+    border-radius: 4px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transition: all 0.15s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .save-all:hover,
+  .save-all:focus-visible {
+    border-color: var(--accent);
+    color: var(--accent);
+    outline: none;
+  }
+
+  footer {
+    margin-top: 48px;
+    text-align: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+
+  footer a {
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  footer a:hover {
+    color: var(--accent);
+  }
+
+  /* Staggered entrance */
+  .contact-card {
+    opacity: 0;
+    transform: translateY(8px);
+    animation: fadeUp 0.4s ease forwards;
+  }
+
+  .contact-card:nth-child(1) { animation-delay: 0.05s; }
+  .contact-card:nth-child(2) { animation-delay: 0.1s; }
+  .contact-card:nth-child(3) { animation-delay: 0.15s; }
+  .contact-card:nth-child(4) { animation-delay: 0.2s; }
+  .contact-card:nth-child(5) { animation-delay: 0.25s; }
+  .contact-card:nth-child(6) { animation-delay: 0.3s; }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .contact-card {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @media (max-width: 380px) {
+    body { padding: 24px 16px 40px; }
+    h1 { font-size: 40px; }
+    .contact-card { padding: 16px; }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="logo.png" alt="Bingham MTB" class="logo">
+      <div class="eyebrow">Bingham Miners MTB</div>
+      <h1>Team Contacts</h1>
+      <p class="intro">Tap any name below to save that contact to your phone.</p>
+    </header>
+
+    <div class="divider">Coaches</div>
+
+    <div class="contact-grid">
+      <a class="contact-card" href="vcf/rodney-tupai.vcf">
+        <div class="contact-info">
+          <div class="contact-role">Head Coach</div>
+          <div class="contact-name">Rodney Tupai</div>
+          <div class="contact-phone">801-870-7423</div>
+        </div>
+        <div class="contact-action" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </div>
+      </a>
+
+      <a class="contact-card" href="vcf/matt-michaelis.vcf">
+        <div class="contact-info">
+          <div class="contact-role">Head Coach</div>
+          <div class="contact-name">Matt Michaelis</div>
+          <div class="contact-phone">801-641-0795</div>
+        </div>
+        <div class="contact-action" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </div>
+      </a>
+    </div>
+
+    <div class="divider">Team Leadership</div>
+
+    <div class="contact-grid">
+      <a class="contact-card" href="vcf/danielle-tupai.vcf">
+        <div class="contact-info">
+          <div class="contact-role">Team Director</div>
+          <div class="contact-name">Danielle Tupai</div>
+          <div class="contact-phone">801-918-3924</div>
+        </div>
+        <div class="contact-action" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </div>
+      </a>
+
+      <a class="contact-card" href="vcf/melissa-darby.vcf">
+        <div class="contact-info">
+          <div class="contact-role">Assistant Team Director</div>
+          <div class="contact-name">Melissa Darby</div>
+          <div class="contact-phone">801-699-4937</div>
+        </div>
+        <div class="contact-action" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </div>
+      </a>
+
+      <a class="contact-card" href="vcf/brooke-haas.vcf">
+        <div class="contact-info">
+          <div class="contact-role">Assistant Team Director</div>
+          <div class="contact-name">Brooke Haas</div>
+          <div class="contact-phone">801-440-0782</div>
+        </div>
+        <div class="contact-action" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </div>
+      </a>
+
+      <a class="contact-card" href="vcf/ashley-thomas.vcf">
+        <div class="contact-info">
+          <div class="contact-role">Treasurer</div>
+          <div class="contact-name">Ashley Thomas</div>
+          <div class="contact-phone">801-673-5533</div>
+        </div>
+        <div class="contact-action" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </div>
+      </a>
+    </div>
+
+    <div class="divider">Or</div>
+
+    <a class="save-all" href="vcf/all-coaches.vcf">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+      Save All Contacts
+    </a>
+
+    <footer>
+      <a href="https://mockletdesign.com" target="_blank" rel="noopener">Mocklet Design</a>
+    </footer>
+  </div>
+</body>
+</html>
